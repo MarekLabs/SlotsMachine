@@ -1,0 +1,119 @@
+body {
+    width: 100%;
+    height: 100%;
+
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #111111;
+}
+
+.slot {
+    height: 200px;
+    width: 200px;
+    position: relative;
+}
+
+#nadAll {
+    position: relative;
+    top: 30%;
+}
+
+#all {
+    display: flex;
+    justify-content: center;
+    column-gap: 6px;
+}
+
+#slot2 {
+    border-left: 0;
+    border-right: 0;
+}
+
+img {
+    width: 200px;
+    height: 200px;
+}
+
+#graj {
+    align-items: center;
+    background-image: linear-gradient(144deg, #AF40FF, #5B42F3 50%, #00DDEB);
+    border: 0;
+    border-radius: 8px;
+    box-shadow: rgba(151, 65, 252, 0.2) 0 15px 30px -5px;
+    box-sizing: border-box;
+    color: #FFFFFF;
+    display: flex;
+    font-family: Phantomsans, sans-serif;
+    font-size: 20px;
+    justify-content: center;
+    line-height: 1em;
+    max-width: 100%;
+    min-width: 140px;
+    padding: 19px 24px;
+    text-decoration: none;
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+    white-space: nowrap;
+    cursor: pointer;
+}
+
+#graj:active:active,
+#graj:active:active:hover {
+    outline: 0;
+}
+
+@media (min-width: 768px) {
+    #graj {
+        font-size: 24px;
+        min-width: 196px;
+    }
+}
+
+center {
+    position: relative;
+    top: 40%;
+}
+
+
+.box:after {
+    --border-size: 3px;
+    --border-angle: 0turn;
+    content: '';
+    width: calc(100% + var(--border-size) * 2);
+    height: calc(100% + var(--border-size) * 2);
+    position: absolute;
+    z-index: -1;
+    top: calc(var(--border-size) * -1);
+    left: calc(var(--border-size) * -1);
+    background-image: conic-gradient(
+            from var(--border-angle),
+            #213,
+            #112 50%,
+            #213
+    ),
+    conic-gradient(from var(--border-angle), transparent 20%, #08f, #f03);
+    background-size: calc(100% - (var(--border-size) * 2)) calc(100% - (var(--border-size) * 2)),
+    cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+
+    animation: bg-spin 3s linear infinite;
+}
+
+.box:hover:after {
+    animation-play-state: paused;
+}
+
+@keyframes bg-spin {
+    to {
+        --border-angle: 1turn;
+    }
+}
+
+@property --border-angle {
+    syntax: "<angle>";
+    inherits: true;
+    initial-value: 0turn;
+}
